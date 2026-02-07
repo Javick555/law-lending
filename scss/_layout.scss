@@ -1,0 +1,42 @@
+// Стили макета
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include respond-to(md) {
+        padding: 0 $spacing-lg;
+    }
+}
+
+// Стили шапки будут в components
+
+.main {
+    padding: $spacing-xl 0;
+    min-height: calc(100vh - 200px);
+    @include flex-center;
+}
+
+.section {
+    background-color: $white;
+    padding: $spacing-lg;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: $spacing-md;
+}
+
+.footer {
+    background-color: $primary-color;
+    color: $white;
+    padding: $spacing-md 0;
+    text-align: center;
+
+    p {
+        margin: 0;
+        color: color.scale($primary-color, $lightness: 40%);
+    }
+}

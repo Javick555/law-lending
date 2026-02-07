@@ -1,0 +1,260 @@
+// Компоненты
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'sass:color';
+
+// ============================================
+// HEADER COMPONENT
+// ============================================
+
+.header {
+    width: 100%;
+    font-family: $font-family-base;
+}
+
+// Верхняя полоса с контактами
+.header__top {
+    background-color: $header-bg-dark;
+    padding: $spacing-xs 0;
+}
+
+.header__top-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    align-items: center;
+    justify-content: space-between;
+    
+    @include respond-to(md) {
+        flex-direction: row;
+    }
+}
+
+.header__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    align-items: center;
+    
+    @include respond-to(sm) {
+        flex-direction: row;
+        gap: $spacing-md;
+    }
+}
+
+.header__contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $header-text-white;
+    text-decoration: none;
+    font-size: 14px;
+    @include transition(color);
+    
+    &:hover {
+        color: $header-accent-blue;
+    }
+}
+
+.header__contact-icon {
+    color: $header-accent-blue;
+    flex-shrink: 0;
+}
+
+.header__contact-text {
+    white-space: nowrap;
+    line-height: 120em;
+   
+
+
+}
+
+.header__callback {
+    color: $header-accent-blue;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    @include transition(color);
+    
+    &:hover {
+        color: $header-text-white;
+    }
+}
+
+// Основная часть шапки
+.header__main {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231a1a1a" width="1200" height="400"/><g opacity="0.1"><line x1="0" y1="0" x2="1200" y2="400" stroke="%233498db" stroke-width="2"/><line x1="1200" y1="0" x2="0" y2="400" stroke="%233498db" stroke-width="2"/></g></svg>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $spacing-md 0;
+    position: relative;
+}
+
+.header__main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    
+    @include respond-to(md) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+// Логотип
+.header__logo {
+    text-align: center;
+    
+    @include respond-to(md) {
+        text-align: left;
+    }
+}
+
+.header__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $header-accent-blue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.2;
+    
+    @include respond-to(md) {
+        font-size: 32px;
+    }
+    
+    @include respond-to(lg) {
+        font-size: 40px;
+    }
+}
+
+.header__subtitle {
+    font-size: 20px;
+    color: $header-text-white;
+    text-transform: lowercase;
+    margin: 4px 0 0 0;
+    font-weight: 400;
+    line-height: 1.5em;
+    
+}
+
+// Навигация
+.header__nav {
+    position: relative;
+    width: 100%;
+    
+    @include respond-to(md) {
+        width: auto;
+    }
+}
+
+.header__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    
+    @include respond-to(md) {
+        display: none;
+    }
+}
+
+.header__menu-toggle-line {
+    width: 24px;
+    height: 2px;
+    background-color: $header-text-white;
+    @include transition(all);
+}
+
+.header__menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: $spacing-md;
+    z-index: 100;
+    margin-top: $spacing-sm;
+    border-top: 1px solid $header-border-blue;
+    
+    @include respond-to(md) {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        border: none;
+        gap: $spacing-md;
+    }
+    
+    @include respond-to(lg) {
+        gap: $spacing-lg;
+    }
+}
+
+.header__menu--open {
+    display: flex;
+}
+
+.header__menu-item {
+    margin: 0;
+}
+
+.header__menu-link {
+    display: block;
+    color: $header-text-white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: $spacing-xs $spacing-sm;
+    @include transition(color);
+    
+    @include respond-to(md) {
+        padding: $spacing-xs 0;
+        font-size: 15px;
+    }
+    
+    @include respond-to(lg) {
+        font-size: 16px;
+    }
+    
+    &:hover {
+        color: $header-accent-blue;
+    }
+}
+
+.header__menu-link--active {
+    color: $header-accent-blue;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+// JavaScript для мобильного меню
+.header__menu-toggle[aria-expanded="true"] {
+    .header__menu-toggle-line {
+        &:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
+}

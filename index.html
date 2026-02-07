@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правозащитник - Юридическая компания</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.header__menu-toggle');
+            const menu = document.querySelector('.header__menu');
+            
+            if (menuToggle && menu) {
+                menuToggle.addEventListener('click', function() {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    menu.classList.toggle('header__menu--open');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div class="header__top-container container">
+                <div class="header__contacts">
+                    <a href="tel:+79220229432" class="header__contact header__contact--phone">
+                        <svg class="header__contact-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" fill="currentColor"/>
+                            <path d="M8 12a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill="currentColor"/>
+                        </svg>
+                        <span class="header__contact-text">+7 (922) 022-94-32</span>
+                    </a>
+                    <a href="mailto:Jane@yahoo.com" class="header__contact header__contact--email">
+                        <svg class="header__contact-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.708 2.825a.5.5 0 0 1-.584 0L1 5.383V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5.383z" fill="currentColor"/>
+                        </svg>
+                        <span class="header__contact-text">Jane@yahoo.com</span>
+                    </a>
+                </div>
+                <a href="#callback" class="header__callback">Заказать звонок</a>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="header__main-container container">
+                <div class="header__logo">
+                    <h1 class="header__title">ПРАВОЗАЩИТНИК</h1>
+                    <p class="header__subtitle">юридическая компания</p>
+                </div>
+                <nav class="header__nav">
+                    <button class="header__menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                    </button>
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#services" class="header__menu-link">Услуги</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#about" class="header__menu-link header__menu-link--active">О компании</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#lawyers" class="header__menu-link">Наши юристы</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#reviews" class="header__menu-link">Отзывы</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#news" class="header__menu-link">Новости</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#contacts" class="header__menu-link">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+
+        <main class="main">
+            <section class="section">
+                <h2>Добро пожаловать!</h2>
+                <p>Здесь мы будем верстать по готовому макету, используя SCSS.</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Law Lending</p>
+        </footer>
+    </div>
+</body>
+</html>
