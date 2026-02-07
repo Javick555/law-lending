@@ -1,0 +1,9 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.s-main {
+display: flex;
+text-align: center;
+background-color: red;
+}
